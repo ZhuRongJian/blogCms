@@ -1,0 +1,9 @@
+mysql:
+  user: "root"
+  password: "root"
+  db: blog
+  host: "127.0.0.1"
+  port: "3306"
+  min: 10
+  max: 100
+  log: true
