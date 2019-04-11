@@ -14,18 +14,21 @@ func SetUpRouter() *gin.Engine {
 
 	router.Static("/static", "./static")
 	router.StaticFile("/favicon.ico", "./static/images/logo.jpg")
-	router.LoadHTMLGlob("views/*")
+	router.LoadHTMLGlob("views/**/*")
 	//后台管理员页面
 	admin := router.Group("/admin")
 	{
 		admin.GET("/index", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "index.html", gin.H{})
+			c.HTML(http.StatusOK, "admin/index.html", gin.H{})
 		})
 		admin.GET("/one", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "one.html", gin.H{})
+			xx := c.DefaultQuery("page", "0")
+			c.HTML(http.StatusOK, "admin/one.html", gin.H{
+				"title": xx,
+			})
 		})
 		admin.GET("/two", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "two.html", gin.H{})
+			c.HTML(http.StatusOK, "admin/two.html", gin.H{})
 		})
 	}
 

@@ -1,0 +1,108 @@
+{{ define "admin/index.html" }}
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>后台管理系统</title>
+        <link rel="stylesheet" href="../../static/layui/css/layui.css"/>
+        <link rel="shortcut" href="/favicon.ico"/>
+        <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
+    </head>
+
+    <body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">后台管理</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a>控制台</a></li>
+                <li class="layui-nav-item"><a>商品管理</a></li>
+                <li class="layui-nav-item"><a>用户</a></li>
+                <li class="layui-nav-item">
+                    <a>其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a>邮件管理</a></dd>
+                        <dd><a>消息管理</a></dd>
+                        <dd><a>授权管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        贤心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a>基本资料</a></dd>
+                        <dd><a>安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a>退了</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">帖子管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a target="iframe" href="./one?page=1">新增帖子</a></dd>
+                            <dd><a target="iframe" href="./two?page=2">帖子列表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a>用户设置</a></li>
+                    <li class="layui-nav-item"><a>系统设置</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" lay-allowClose="true">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">网站设置</li>
+                    <li>用户管理</li>
+                    <li>权限分配</li>
+                    <li>商品管理</li>
+                    <li>订单管理</li>
+                </ul>
+
+                <div class="layui-tab-content" style="height: 100px;">
+                    <div class="layui-tab-item layui-show">
+                        <iframe class="body-iframe" name="iframe" width="100%" height="99%" src="./one" frameborder="0"
+                                seamless>
+                        </iframe>
+                    </div>
+                    <div class="layui-tab-item">
+                        <iframe class="body-iframe" name="iframe" width="100%" height="99%" src="./two" frameborder="0"
+                                seamless>
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+    <script src="../../static/layui/layui.js"></script>
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function () {
+            var element = layui.element;
+        });
+    </script>
+    </body>
+
+    </html>
+{{ end }}
