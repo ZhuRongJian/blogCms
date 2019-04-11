@@ -2,11 +2,12 @@ package models
 
 import (
 	"database/sql"
+	"github.com/jinzhu/gorm"
 	"time"
 )
 
 type User struct {
-	Account    string         `gorm:"column:account"`
+	Account    string         `gorm:"column:account" `
 	CreateTime time.Time      `gorm:"column:create_time"`
 	Email      sql.NullString `gorm:"column:email"`
 	ID         int            `gorm:"column:id;primary_key"`
@@ -19,6 +20,11 @@ type User struct {
 
 func (u *User) TableName() string {
 	return "post"
+}
+func (u *User) BeforeCreate(scope *gorm.Scope) error {
+	scope.SetColumn("UpdateTime", time.Now())
+	scope.SetColumn("CreateTime", time.Now())
+	return nil
 }
 
 type Post struct {
@@ -39,6 +45,12 @@ func (p *Post) TableName() string {
 	return "post"
 }
 
+func (p *Post) BeforeCreate(scope *gorm.Scope) error {
+	scope.SetColumn("UpdateTime", time.Now())
+	scope.SetColumn("CreateTime", time.Now())
+	return nil
+}
+
 type Catrgory struct {
 	CreateTime time.Time      `gorm:"column:create_time"`
 	ID         int            `gorm:"column:id;primary_key"`
@@ -49,4 +61,10 @@ type Catrgory struct {
 
 func (c *Catrgory) TableName() string {
 	return "category"
+}
+
+func (c *Catrgory) BeforeCreate(scope *gorm.Scope) error {
+	scope.SetColumn("UpdateTime", time.Now())
+	scope.SetColumn("CreateTime", time.Now())
+	return nil
 }
