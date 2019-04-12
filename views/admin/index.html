@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>后台管理系统</title>
+        <title>Blog-后台管理</title>
         <link rel="stylesheet" href="../../static/layui/css/layui.css"/>
         <link rel="shortcut" href="/favicon.ico"/>
         <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
@@ -48,7 +48,8 @@
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item layui-nav-itemed">
+                    <li class="layui-nav-item layui-this"><a>首页</a></li>
+                    <li class="layui-nav-item ">
                         <a class="" href="javascript:;">帖子管理</a>
                         <dl class="layui-nav-child">
                             <dd><a target="iframe" href="./one?page=1">新增帖子</a></dd>
@@ -63,7 +64,7 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <iframe class="body-iframe" name="iframe" width="100%" height="99%" src="./one" frameborder="0" seamless>
+            <iframe class="body-iframe" name="iframe" width="100%" height="99%" src="./one?page=1" frameborder="0" seamless>
             </iframe>
         </div>
 
