@@ -43,7 +43,17 @@ func SetUpRouter() *gin.Engine {
 				adpp.POST("add", post.Add)
 			}
 		}
+	}
 
+	//前台blog页面
+	blog := router.Group("/blog")
+	{
+		blogv := blog.Group("/view")
+		{
+			blogv.GET("/", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "admin/index.html", gin.H{})
+			})
+		}
 	}
 
 	return router
