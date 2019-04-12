@@ -5,7 +5,6 @@ import (
 	"blog-cms/models"
 	"blog-cms/service"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 func List(c *gin.Context) {
@@ -18,8 +17,6 @@ func Add(c *gin.Context) {
 		controllers.SendResponse(c, err, nil)
 		return
 	}
-	post.CreateTime = time.Now()
-	post.UpdateTime = time.Now()
 	ser := service.PostService{}
 	result, err := ser.Add(post)
 	if err != nil {
