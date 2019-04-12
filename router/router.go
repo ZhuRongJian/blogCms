@@ -16,7 +16,7 @@ func SetUpRouter() *gin.Engine {
 	router.Static("/static", "./static")
 	router.StaticFile("/favicon.ico", "./static/images/logo.jpg")
 	router.LoadHTMLGlob("views/**/*")
-	//后台管理员页面
+	// 后台管理员页面
 	admin := router.Group("/admin")
 	{
 		// 后台页面路由
@@ -45,15 +45,17 @@ func SetUpRouter() *gin.Engine {
 		}
 	}
 
-	//前台blog页面
+	// 前台blog页面
 	blog := router.Group("/blog")
 	{
+		// 前台页面路由
 		blogv := blog.Group("/view")
 		{
 			blogv.GET("/", func(c *gin.Context) {
-				c.HTML(http.StatusOK, "admin/index.html", gin.H{})
+				c.HTML(http.StatusOK, "blog/index.html", gin.H{})
 			})
 		}
+		// 前台接口路由
 	}
 
 	return router
