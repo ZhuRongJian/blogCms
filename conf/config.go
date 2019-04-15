@@ -44,6 +44,6 @@ func initDb() error {
 	password := viper.GetString("mysql.password")
 	dbName := viper.GetString("mysql.db")
 	local := viper.GetString("mysql.host") + ":" + viper.GetString("mysql.port")
-	DB, _ = gorm.Open("mysql", ""+user+":"+password+"@("+local+")/"+dbName+"?charset=utf8&parseTime=True&loc=")
+	DB, _ = gorm.Open("mysql", ""+user+":"+password+"@("+local+")/"+dbName+"?charset=utf8&parseTime=True&loc=Local")
 	return nil
 }

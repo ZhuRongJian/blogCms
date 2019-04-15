@@ -54,6 +54,24 @@ func SetUpRouter() *gin.Engine {
 			blogv.GET("/", func(c *gin.Context) {
 				c.HTML(http.StatusOK, "blog/index.html", gin.H{})
 			})
+			blogv.GET("/about", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "blog/about.html", gin.H{})
+			})
+			blogv.GET("/fengmian", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "blog/fengmian.html", gin.H{})
+			})
+			blogv.GET("/info", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "blog/info.html", gin.H{})
+			})
+			blogv.GET("/info2", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "blog/info2.html", gin.H{})
+			})
+			blogv.GET("/list", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "blog/list.html", gin.H{})
+			})
+			blogv.GET("/time", func(c *gin.Context) {
+				c.HTML(http.StatusOK, "blog/time.html", gin.H{})
+			})
 		}
 		// 前台接口路由
 	}

@@ -16,6 +16,7 @@ require (
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
 	github.com/json-iterator/go v1.1.6 // indirect
 	github.com/mattn/go-isatty v0.0.7 // indirect
+	github.com/spf13/cast v1.3.0
 	github.com/spf13/viper v1.3.2
 	github.com/stretchr/testify v1.3.0 // indirect
 	github.com/ugorji/go/codec v0.0.0-20190320090025-2dc34c0b8780 // indirect
